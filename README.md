@@ -1,6 +1,8 @@
 anyline_profiler
 ================
 
+    DEPENDENCIES : https://pypi.python.org/pypi/line_profiler
+
 I often need to find a bottle-neck in some code, and most easiest way to use profiling. Of course you can use internal Cprofile, but it does not allow to quickly understand which function or method takes 90% of processing time.
 
 But there is a nice package - line_profiler for python 2.7 https://pypi.python.org/pypi/line_profiler
