@@ -8,6 +8,7 @@ To use it you should add decorator @profile to your code and run your python mod
 
 I made it a bit more simplier - all you need to import AnyLineProfiler, define your output function, that will be used as postprocessing output (by default - result will be printed) and use it as any other decorator. Also AnyLineProfiler collects all results to StringIO and it can be used in Threaded scripts
 
+==============================================================
 from any_line_profiler import AnyLineProfiler
 profile =  AnyLineProfiler( ) #or profile =  AnyLineProfiler(your_function_to_post_process )
 
@@ -19,7 +20,7 @@ def long_function()
 
 For example we have 2 functions - test1 and test2 and we want to print profile results for first and to log (using logging module) for second. So we need to define two different profilers based on AnyLineProfiler and define logging function
 
-
+==============================================================
 import time
 from any_line_profiler import AnyLineProfiler
 
@@ -46,30 +47,27 @@ def test2():
     time.sleep(0.1)
     time.sleep(0.2)
 
+
 After executing this script you will see following results: first from logging, second basic print
 
-
+==============================================================
 2013-08-30 21:16:15,878 root     ERROR    test_profile.py [line:42]: Timer unit: 3.19979e-07 s
 
 Function: test1 at line 47
 Total time: 0.299973 s
 
 Line #      Hits         Time  Per Hit   % Time  Line Contents
-==============================================================
     47                                           @profileLog
     48                                           def test1():
     49         1       312418 312418.0     33.3      time.sleep(0.1)
     50         1       625060 625060.0     66.7      time.sleep(0.2)
 
 
--------
 Timer unit: 3.19979e-07 s
-
 Function: test2 at line 52
 Total time: 0.300138 s
 
 Line #      Hits         Time  Per Hit   % Time  Line Contents
-==============================================================
     52                                           @profile
     53                                           def test2():
     54         1       312256 312256.0     33.3      time.sleep(0.1)
